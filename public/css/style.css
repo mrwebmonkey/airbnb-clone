@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.conatiner {
+    flex: 1;
+}
+.navbar {
+    height: 80px;
+}
+.fa-compass {
+    font-size: 2.5rem;
+    color: rgb(223, 20, 20);
+}
+.custom-btn {
+    background-color: rgb(223, 20, 20) !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* styling to card */
+
+.card {
+    margin-bottom: 1rem;
+    border: none !important;
+}
+.card img {
+    width: 100%;
+    height: 15rem;
+    margin-top: 10px;
+    border-radius: 13px;
+}
+.card-body h6 a{
+    text-decoration: none;
+    color: black;
+}
+.card-body p {
+    font-size: 16px;
+}
+.card-body h6 a:hover {
+    text-decoration: underline ;
+}
+.card-body .price {
+    color: rgb(223, 20, 20);
+    font-weight: 700;
+}
+
+/* styling map */
+
+.map-box #map {
+    height: 420px;
+    width: 100%;
+}
+
+/* adding style to  home page */
+.container-fluid {
+    padding: 30px !important;
+}
+.container-fluid .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-fluid .logo h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(223, 20, 20);
+}
+.container-fluid .navbar-nav .left-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: 1.5px solid rgb(145, 144, 144);
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.search-bar {
+    margin-left: 16rem;
+}
+.search-bar #search {
+    width: 20rem;
+    border-radius: 30px;
+    border: 1.5px solid rgb(145, 144, 144);
+    padding: 10px 20px;
+}
+.search-bar #search-btn {
+    border-radius: 30px;
+    background-color: rgb(223, 20, 20) !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px;
+    margin-left: 10px;
+}

@@ -1,0 +1,135 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    .filters {
+        height: 4rem;
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 30px;
+    }
+    .filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 7px;
+        color: rgb(145, 144, 144);
+        cursor: pointer;
+
+        &:hover {
+            color: black;
+            transition: 0.2s;
+        }
+    }
+    .filter i {
+        font-size: 24px;
+    }
+    .filter p {
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .toggle-switch {
+        margin-bottom: 20px;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+        padding: 0px 8px;
+        border: 1.5px solid rgb(145, 144, 144);
+        border-radius: 30px;
+        cursor: pointer;
+    }
+    .toggle-switch p {
+        font-size: 14px;
+        color: rgb(145, 144, 144);
+        margin-top: 15px;
+    }
+    .tax-info {
+        color: black !important;
+        font-size: 14px;
+        display: none;
+    }
+</style>
+<body>
+    <div class="filters">
+        <div class="filter">
+            <i class="fa-solid fa-fire"></i>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <p>Beachs</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-campground"></i>
+            <p>Camping</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-mountain-sun"></i>
+            <p>Mountains</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-tree"></i>
+            <p>Trees</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-route"></i>
+            <p>Routes</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-water"></i>
+            <p>Lakes</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-snowflake"></i>
+            <p>Snow</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-bed"></i>
+            <p>Rooms</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-hotel"></i>
+            <p>Hotels</p>
+        </div>
+
+        <div class="form-check form-switch toggle-switch">
+            <p>Display with taxes</p>
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+        </div>
+    </div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% for(let listing of allListings) { %>
+            <div class="card col " style="width: 17rem;">
+                <img src="<%= listing.image.url %>" class="" alt="listing image">
+                <div class="card-body">
+                  <h6 class="card-title"><a href="/listings/<%= listing._id %>"><%= listing.title %></a></h6>
+                  <p class="card-text price">&#8377 <%= listing.price.toLocaleString("en-IN") %>/night <i class="tax-info"> + 18% GST</i></p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</body>
+
+<script>
+    const toogleSwitch = document.getElementById("switchCheckDefault");
+    toogleSwitch.addEventListener("click", () => {
+        const taxInfo = document.getElementsByClassName("tax-info");
+        for(let info of taxInfo) {
+            if(info.style.display !== "inline") {
+                info.style.display = "inline";
+            }else {
+                info.style.display = "none";
+            }
+            
+        }        
+    })
+        
+
+</script>
+
+
